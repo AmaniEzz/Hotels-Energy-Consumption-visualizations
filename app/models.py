@@ -40,7 +40,7 @@ class Meter(models.Model):
 
 class Consumption(models.Model):
     consumption = models.DecimalField(max_digits=10, decimal_places=5)
-    meter_id = models.ForeignKey(Meter, on_delete=models.CASCADE, primary_key=True)
+    meter_id = models.ForeignKey(Meter, on_delete=models.CASCADE)
     reading_date_time = models.DateTimeField(auto_now=False, default=None)
 
     def __str__(self):

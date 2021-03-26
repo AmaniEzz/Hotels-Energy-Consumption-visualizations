@@ -17,6 +17,14 @@ from django.core.files.storage import default_storage
 
 
 #######################################################################################################
+def explore(request):
+    hotels =  Hotel.objects.all()
+    context = {
+        'Hotels': hotels,
+            }
+            
+    return render(request, 'app/explore.html', context=context)
+
 
 #######################################################################################################
 def dump_to_database():
@@ -56,7 +64,7 @@ def dump_to_database():
         objs = [
             Consumption(
                consumption = row['ï»¿consumption'],
-               meter_id = Meter.objects.get_or_create(id=row["meter_id"]),
+               meter_id = Meter.objects.get(id=row["meter_id"]),
                reading_date_time = row["reading_date_time"],
             )
 
@@ -80,8 +88,7 @@ def upload_csv(request):
                 for f in files:
                     file_instance = UploadModel(files=f)
                     file_instance.save()
-                if default_storage.exists(file_instance.files.path) == "False":
-                    dump_to_database()
+                dump_to_database()
         return HttpResponseRedirect(reverse("explore"))
 
     else:
@@ -121,12 +128,4 @@ def barchart(request, hotel_id):
 
 
 
-def explore_hotels(request):
-    if request.method == 'GET':
-        context = {
-        'Hotels': Hotel.objects.all() ,
-            }
-        
-        return render(request, 'app/explore.html', context=context)
     
-
