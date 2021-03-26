@@ -21,7 +21,7 @@
 
 ## Chart Explanation
 
-#### For each Hotel, I calculated the total sum of consumption for each electricity supply meter, this gives us an insight about each hotel which electricity supply do they consume the most.
+#### For each Hotel, I calculated the total sum of consumption for each electricity supply meter, this gives us insights about which electricity supply do each hotel consume the most.
 
 
 ----------
