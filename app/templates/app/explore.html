@@ -15,7 +15,7 @@
               <tr>
                 <th scope="row">{{ hotel.id }}</th>
 
-                <td> <a href="#"> {{ hotel.name }} </a> </td>
+                <td> <a href="{% url 'explore' %}"> {{ hotel.name }} </a> </td>
               </tr>
               {% endfor %}
 {% endblock %}

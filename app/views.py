@@ -16,7 +16,6 @@ from django.db.models import Sum
 from django.core.files.storage import default_storage
 
 
-
 #######################################################################################################
 def explore(request):
     hotel = Hotel.objects.all()
@@ -37,7 +36,7 @@ def dump_to_database():
         next(f)
         for row in reader:
             try:
-                 _, created = Hotel.objects.create(
+                 _, created = Hotel.objects.get_or_create(
                     id = row[0],
                     name = row[1],
                     )
@@ -50,7 +49,7 @@ def dump_to_database():
         next(f)
         for row in reader:
             try:
-                _, created = Meter.objects.create(
+                _, created = Meter.objects.get_or_create(
                    building_id = Hotel.objects.get(id=row[0]),
                    id = row[1],
                    fuel = row[2],
@@ -66,7 +65,7 @@ def dump_to_database():
         objs = [
             Consumption(
                consumption = row['ï»¿consumption'],
-               meter_id = Meter.objects.get(id=row["meter_id"]),
+               meter_id = Meter.objects.get_or_create(id=row["meter_id"]),
                reading_date_time = row["reading_date_time"],
             )
 
@@ -123,9 +122,10 @@ def barchart(request, hotel_id):
         data['label'] = meter['meter_id__fuel']
         data['value'] = str(meter['consumption__sum'])
         dataSource['data'].append(data)    
+
        
         # Create an object for the Column 2D chart using the FusionCharts class constructor                      
-    column2D = FusionCharts("column2D", "ex1" , "450", "500", "chart-1", "json", dataSource)
+    column2D = FusionCharts("column2D", "Candy" , "500", "450", "chart-1", "json", dataSource)
     return render(request, 'app/index.html', {'output': column2D.render()}) 
 
 
