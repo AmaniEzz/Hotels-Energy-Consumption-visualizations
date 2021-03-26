@@ -21,7 +21,7 @@
 
 ## Chart Explanation
 
-#### For each Hotel, I calculated the total sum of consumption for each electricity supply meter, this gives us an insight about each hotel which electricity supply they consume the most.
+#### For each Hotel, I calculated the total sum of consumption for each electricity supply meter, this gives us an insight about each hotel which electricity supply do they consume the most.
 
 
 ----------
@@ -29,7 +29,6 @@
 ## Issue with step 3
 
 
-
-#### Unfortunately for some reasons the hyperlink isn't working :( However, you can Navigate directly to an example here [http://127.0.0.1:8000/explore/9539](http://127.0.0.1:8000/explore/9539) the graph will render normally. meanwhile will keep working on this bug.
+#### Unfortunately for some reasons the hyperlink isn't working :( However, you can Navigate directly to an example here [http://127.0.0.1:8000/explore/9539](http://127.0.0.1:8000/explore/9539) the graph will render normally. Meanwhile, I will keep working on this bug.
 
 > I disabled the hyperlink in my `explore.html` temporarily until I figure it out.
