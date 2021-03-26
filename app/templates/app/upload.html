@@ -6,10 +6,10 @@
 
 {% block body %}
 
-<div class="row justify-content-center" style=" padding: 70px 0 20px 0;">
-    <div class="col-4">
+<div class="row justify-content-center" style=" padding: 70px 0px 0px 0px;">
+    <div class="col-4 card">
     <h2  class="mt-4" style="text-align: center;">Upload CSV files</h2>
-    <form method="post" enctype="multipart/form-data">
+    <form class= "form-group" method="post" enctype="multipart/form-data" style=" padding: 20px;">
 
         {% csrf_token %}
         <div>
@@ -17,7 +17,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Upload</button>
-        
+
     </form>
     </div>
 </div>

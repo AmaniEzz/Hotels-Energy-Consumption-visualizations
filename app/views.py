@@ -17,15 +17,6 @@ from django.core.files.storage import default_storage
 
 
 #######################################################################################################
-def explore(request):
-    hotel = Hotel.objects.all()
-    meter = Meter.objects.all()
-    context = {
-        'Hotels': hotel ,
-            }
-            
-    return render(request, 'app/explore.html', context=context)
-
 
 #######################################################################################################
 def dump_to_database():
@@ -130,4 +121,12 @@ def barchart(request, hotel_id):
 
 
 
+def explore_hotels(request):
+    if request.method == 'GET':
+        context = {
+        'Hotels': Hotel.objects.all() ,
+            }
+        
+        return render(request, 'app/explore.html', context=context)
     
+

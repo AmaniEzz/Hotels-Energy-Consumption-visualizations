@@ -3,19 +3,22 @@
 
 
 {% block body %}
-    <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Hotel Id</th>
-                <th scope="col">Hotel Name</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for hotel in Hotels %}
-              <tr>
-                <th scope="row">{{ hotel.id }}</th>
 
-                <td> <a href="{% url 'explore' %}"> {{ hotel.name }} </a> </td>
-              </tr>
-              {% endfor %}
+   <div class="tabelview" >
+    <table class="table" >
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Hotel Id</th>
+          <th scope="col">Hotel Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for hotel in Hotels %}
+        <tr>
+          <th scope="row">{{ hotel.id }}</th>
+          <td>  <a href="{% url 'barchart' hotel.name %}"> {{ hotel.name }} </a> </td>
+        </tr>
+        {% endfor %}
+  </div>
+
 {% endblock %}
