@@ -7,13 +7,13 @@
 
 {% block body %}
 
-<h2> Monthly Energy Consumption</h2>
+<h2> Upload CSV files </h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div>
              {{ form.files|as_crispy_field }}
         </div>
 
-        <button type="submit" class="btn btn-primary">Upload</button>
+        <button type="submit" class="btn btn-m btn-primary">Upload</button>
         </form>
 {% endblock %}
