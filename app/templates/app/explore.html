@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+{% block body %}
+    <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Hotel Id</th>
+                <th scope="col">Hotel Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for hotel in Hotels %}
+              <tr>
+                <th scope="row">{{ hotel.id }}</th>
+                <td> <a href="{% url 'barchart'  hotel.id %}"> {{ hotel.name }} </a> </td>
+              </tr>
+              {% endfor %}
+{% endblock %}
