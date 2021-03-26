@@ -1,17 +1,17 @@
 
 
 # Step 1: Upload all csv files
-<img src="media/upload.png" width="700>
+<img src="https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/upload.png" width="700>
 
 ---------------
 
 # Step 2: A table with all hotels show up
 
-<img src="media/table.png" width="700>
+<img src="https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/table.png" width="700>
 
 ----
 # Step 2: Navigate to the desired Hotel to explore it's data
-<img src="media/chart.png" width="700>
+<img src=https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/chart.png" width="700>
 
 
 ## Chart Explanation
