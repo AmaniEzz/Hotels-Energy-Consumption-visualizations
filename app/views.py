@@ -87,37 +87,11 @@ def upload_csv(request):
         form = UploadFileForm(request.POST, request.FILES)
         files = request.FILES.getlist('files')
         if form.is_valid():
-            for f in files:
-                file_instance = UploadModel(files=f)
-                file_instance.save()
-            if default_storage.exists(file_instance.files.path) == "False":
-                dump_to_database()
-
-            hotel = Hotel.objects.get(id=hotel_id)
-            meter_info =  Consumption.objects.values('meter_id__fuel').annotate(Sum('consumption'))
-
-            dataSource = {}
-            dataSource['chart'] = { 
-                   "caption": f"Total Enegry Consumption by {hotel.name} Hotel",
-                   "subCaption": f"Consumption By Meter",
-                "xAxisName": "Meter",
-            "yAxisName": f" Usage (Kwh)",
-            "numberPrefix": "",
-            "theme": "zune"
-            }
-            dataSource['data'] = []
-         
-            for meter in meter_info:
-                data = {}
-                data['label'] = meter['meter_id__fuel']
-                data['value'] = meter['consumption__sum']
-                dataSource['data'].append(data)    
-              
-            # Create an object for the Column 2D chart using the FusionCharts class constructor                      
-            column2D = FusionCharts("column2D", "ex1" , "450", "500", "chart-1", "json", dataSource)
-            return render(request, 'app/index.html', {'output': column2D.render()}) 
-
-
+                for f in files:
+                    file_instance = UploadModel(files=f)
+                    file_instance.save()
+                if default_storage.exists(file_instance.files.path) == "False":
+                    dump_to_database()
         return HttpResponseRedirect(reverse("explore"))
 
     else:
@@ -147,11 +121,11 @@ def barchart(request, hotel_id):
     for meter in meter_info:
         data = {}
         data['label'] = meter['meter_id__fuel']
-        data['value'] = meter['consumption__sum']
+        data['value'] = str(meter['consumption__sum'])
         dataSource['data'].append(data)    
        
         # Create an object for the Column 2D chart using the FusionCharts class constructor                      
-    column2D = FusionCharts("column2D", "ex1" , "450", "500", "chart-2", "json", dataSource)
+    column2D = FusionCharts("column2D", "ex1" , "450", "500", "chart-1", "json", dataSource)
     return render(request, 'app/index.html', {'output': column2D.render()}) 
 
 
