@@ -3,20 +3,20 @@
 # Step 1: Upload all csv files
 
 
-![alt text](https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/upload.png")
+![alt text](https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/upload.png?raw=true)
 
 ---------------
 
 # Step 2: A table with all hotels show up
 
 
-![alt text](https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/table.png")
+![alt text](https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/table.png?raw=true)
 
 ----
 # Step 2: Navigate to the desired Hotel to explore it's data
 
 
-![alt text](https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/chart.png")
+![alt text](https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/chart.png?raw=true)
 
 
 ## Chart Explanation
