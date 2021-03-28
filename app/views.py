@@ -48,17 +48,25 @@ def dump_to_database():
                 print('Error While creating object: ',e)      
 
     with open(os.path.join(settings.MEDIA_ROOT, 'CSVFiles', 'halfhourly_data.csv'), 'r') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            try:
-                Consumption.objects.get_or_create(consumption = row[0],
-                                                  meter_id = Meter.objects.get(id=row[1]),
-                                                  reading_date_time = row[2],)
-                
-            except Exception as e:
-                print('Error While Importing Data: ',e)
+        reader = csv.DictReader(f)
+        list_of_dict = list(reader)
+        
+        objs = [
+            Consumption(
+               consumption = row['ï»¿consumption'],
+               meter_id = Meter.objects.get(id=row["meter_id"]),
+               reading_date_time = row["reading_date_time"],
+            )
+        for row in list_of_dict
+        ]
+        try:
+            msg = Consumption.objects.bulk_create(objs)
+            returnmsg = {"status_code": 200}
+            print('imported successfully', returnmsg)
+        except Exception as e:
+            returnmsg = {"status_code": 500}
+            print('Error While Importing Data: ',e, returnmsg)
 
-    return 'work is complete'
 
 #######################################################################################################
 def explore(request):
