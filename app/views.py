@@ -10,12 +10,11 @@ from django.contrib import messages
 import os, csv
 from django.shortcuts import render
 from django.http import HttpResponse
-from collections import OrderedDict
-from FusionCharts.fusioncharts import FusionCharts
-from datetime import datetime
 from django.db.models import Sum
 from django.core.files.storage import default_storage
 from django.core.exceptions import ValidationError
+from FusionCharts.fusioncharts import FusionCharts
+
 
 def dump_to_database():
     with open(os.path.join(settings.MEDIA_ROOT, 'CSVFiles', 'building_data.csv'), 'r') as f:

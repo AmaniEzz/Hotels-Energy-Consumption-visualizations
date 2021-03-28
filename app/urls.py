@@ -6,6 +6,6 @@ from . import views
 
 urlpatterns = [
       path("", views.upload_csv, name="upload_csv"),
-      path("explore/<str:hotel_id>/", views.barchart, name="barchart"),
       path("explore/", views.explore, name="explore"),
+      path("explore/<str:hotel_id>/", views.barchart, name="barchart"),
 ]
