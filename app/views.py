@@ -58,20 +58,12 @@ def dump_to_database():
                 print('Error While creating object: ',e)      
 
     with open(os.path.join(settings.MEDIA_ROOT, 'CSVFiles', 'halfhourly_data.csv'), 'r') as f:
-        reader = csv.DictReader(f)
-        list_of_dict = list(reader)
-        
-        objs = [
-            Consumption(
-               consumption = row['ï»¿consumption'],
-               meter_id = Meter.objects.get(id=row["meter_id"]),
-               reading_date_time = row["reading_date_time"],
-            )
+        reader = csv.reader(f)
 
-        for row in list_of_dict
-        ]
         try:
-            msg = Consumption.objects.bulk_create(objs, batch_size=32, ignore_conflicts=True)
+            msg = Consumption.objects.get_or_create( consumption = row['ï»¿consumption'],
+               meter_id = Meter.objects.get(id=row["meter_id"]),
+               reading_date_time = row["reading_date_time"],)
             returnmsg = {"status_code": 200}
             print('imported successfully', returnmsg)
         except Exception as e:
@@ -86,8 +78,7 @@ def upload_csv(request):
         files = request.FILES.getlist('files')
         if form.is_valid():
                 for f in files:
-                    file_instance = UploadModel(files=f)
-                    file_instance.save()
+                    file_instance = UploadModel.objects.get_or_create(files=f)
                 dump_to_database()
         return HttpResponseRedirect(reverse("explore"))
 
