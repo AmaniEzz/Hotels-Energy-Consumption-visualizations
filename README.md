@@ -25,10 +25,3 @@
 
 
 ----------
-
-# Issue with step 3 ---- " Fixed "
-
-
-#### Unfortunately for some reasons the hyperlink isn't working :( However, you can Navigate directly to an example here [http://127.0.0.1:8000/explore/9539](http://127.0.0.1:8000/explore/9539) the graph will render normally. Meanwhile, I will keep working on this bug.
-
-> I disabled the hyperlink in my `explore.html` temporarily until I figure it out.
