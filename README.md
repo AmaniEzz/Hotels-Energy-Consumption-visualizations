@@ -5,6 +5,8 @@
 
 ![alt text](https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/upload.png?raw=true =100x20)
 
+<img src="https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/upload.png" width="200" height="200" />
+
 ---------------
 
 # Step 2: A table with all hotels show up
