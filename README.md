@@ -16,9 +16,9 @@ And navigate to `http://127.0.0.1:8000/`.
 
 ### Step 1: Upload all csv files
 
-
 <img src="https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/upload.png" width="400" />
 
+#### Inserting 93000 rows ro the database in 230 seconds
 ---------------
 
 ### Step 2: A table with all hotels show up
