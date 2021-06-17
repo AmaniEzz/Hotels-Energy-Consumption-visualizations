@@ -17,8 +17,26 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Upload</button>
-   
+        <div class="loader" hidden ></div>
+
     </form>
+    <hr>
+
+    <h5  class="mt-4" style="text-align: center;">Uploaded before?</h5>
+    <form action="{% url 'explore' %}" class= "form-group" method="post" enctype="multipart/form-data" style=" padding: 20px;">
+
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Explore now</button>
+    </form>
+
+
+    {% if messages %}
+        {% for message in messages %}
+        <p style="color: green">{{ message }}</p>
+        {% endfor %}
+    <hr>
+    {% endif %}
     </div>
 </div>
+
 {% endblock %}

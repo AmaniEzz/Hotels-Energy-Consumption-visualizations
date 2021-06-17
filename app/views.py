@@ -97,12 +97,27 @@ def upload_csv(request):
         form = UploadFileForm()
     return render(request, 'app/upload.html', {'form': form })
 
+from django.db import connection
 
 #######################################################################################################
 def barchart(request, hotel_id):
 
+    sql = ' SELECT sum(consumption),fuel, app_hotel.name \
+            FROM public.app_consumption \
+            left join app_meter ON app_consumption.meter_id_id = app_meter.id \
+            left join app_hotel ON app_hotel.id = app_meter.building_id_id \
+            group by app_hotel.name, fuel \
+            order by app_hotel.name, sum(consumption)'
+    
+    cursor = connection.cursor()
+    try:
+        cursor.execute(sql, ['localhost'])
+        row = cursor.fetchall()
+        #print(row)
+    except Exception as e:
+        cursor.close
+
     hotel = Hotel.objects.get(id=hotel_id)
-    meter_info =  Consumption.objects.values('meter_id__fuel').annotate(Sum('consumption'))
 
     dataSource = {}
     dataSource['chart'] = { 
@@ -115,11 +130,12 @@ def barchart(request, hotel_id):
         }
     dataSource['data'] = []
 
-    for meter in meter_info:
-        data = {}
-        data['label'] = meter['meter_id__fuel']
-        data['value'] = str(meter['consumption__sum'])
-        dataSource['data'].append(data)    
+    for h in row:
+        if h[2] == hotel.name:
+            data = {}
+            data['label'] = h[1]
+            data['value'] = str(h[0])
+            dataSource['data'].append(data)    
 
        
         # Create an object for the Column 2D chart using the FusionCharts class constructor                      
