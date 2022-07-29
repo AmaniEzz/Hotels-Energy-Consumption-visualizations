@@ -18,7 +18,7 @@ And navigate to `http://127.0.0.1:8000/`.
 
 <img src="https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/upload.png" width="400" />
 
-#### Inserting 93000 rows into the database took only 3 minutes (thanks to bulk creation)
+#### Inserting 93000 rows into the database took only 2 minutes (thanks to bulk creation)
 ---------------
 
 ### Step 2: A table with all hotels show up
