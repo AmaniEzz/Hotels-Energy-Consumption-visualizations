@@ -1,3 +1,9 @@
+```
+The app allows users to upload CSV files of some hotels' energy consumption data 
+and view each hotel's total sum of consumption for each electricity supply meter,
+this gives us insights into which electricity supply each hotel consumes the most.
+```
+
 ## Setup
 
 The first thing to do is to clone the repository:
@@ -31,8 +37,6 @@ And navigate to `http://127.0.0.1:8000/`.
 <img src="https://github.com/AmaniEzz/Hotels-Energy-Consumption-visualizations/blob/main/media/chart.png" width="400" />
 
 #### Chart Explanation
-
-#### For each Hotel, I calculated the total sum of consumption for each electricity supply meter, this gives us insights about which electricity supply do each hotel consume the most.
 
 
 ----------
