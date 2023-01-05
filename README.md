@@ -1,3 +1,5 @@
+## Description
+
 ```
 The app allows users to upload CSV files of some hotels' energy consumption data 
 and view each hotel's total sum of consumption for each electricity supply meter,
